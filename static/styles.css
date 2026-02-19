@@ -1,0 +1,10 @@
+body { font-family: Arial, sans-serif; margin: 1rem 2rem; background: #f6f8fa; }
+header { display: flex; justify-content: space-between; align-items: center; }
+.card, .tab { background: #fff; padding: 1rem; border-radius: 10px; margin-bottom: 1rem; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+#authSection { display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 1rem; }
+input, textarea, select, button { width: 100%; margin: .3rem 0; padding: .5rem; }
+.tabs { display: grid; grid-template-columns: repeat(5, 1fr); gap: .5rem; margin: 1rem 0; }
+.grid { display: grid; gap: .5rem; }
+ul { padding-left: 1rem; }
+li { margin-bottom: .5rem; }
+li button { width: auto; margin-left: .25rem; }

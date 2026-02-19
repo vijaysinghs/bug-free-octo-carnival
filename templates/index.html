@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Personal Profile Database</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Personal Profile Database</h1>
+    <button id="logoutBtn" hidden>Logout</button>
+  </header>
+
+  <section id="authSection">
+    <div class="card">
+      <h2>Login</h2>
+      <input id="loginUser" placeholder="Username or email" />
+      <input id="loginPass" type="password" placeholder="Password" />
+      <button onclick="login()">Login</button>
+    </div>
+    <div class="card">
+      <h2>Register</h2>
+      <input id="regUser" placeholder="Username" />
+      <input id="regEmail" placeholder="Email" />
+      <input id="regPass" type="password" placeholder="Password (min 8 chars)" />
+      <button onclick="register()">Create Account</button>
+    </div>
+  </section>
+
+  <main id="appSection" hidden>
+    <p id="profileLine"></p>
+
+    <div class="tabs">
+      <button onclick="showTab('achievements')">Achievements</button>
+      <button onclick="showTab('goals')">Goals</button>
+      <button onclick="showTab('expenses')">Expenses</button>
+      <button onclick="showTab('notes')">Notes</button>
+      <button onclick="showTab('confidential')">Confidential</button>
+    </div>
+
+    <section id="achievements" class="tab">
+      <h3>Achievements</h3>
+      <input id="achievementSearch" placeholder="Search..." />
+      <button onclick="loadAchievements()">Search</button>
+      <div class="grid">
+        <input id="achievementTitle" placeholder="Title" />
+        <input id="achievementDate" type="date" />
+        <textarea id="achievementDesc" placeholder="Description"></textarea>
+        <button onclick="saveAchievement()">Save Achievement</button>
+      </div>
+      <ul id="achievementList"></ul>
+    </section>
+
+    <section id="goals" class="tab" hidden>
+      <h3>Goals</h3>
+      <input id="goalSearch" placeholder="Search..." />
+      <select id="goalFilterStatus"><option value="">All statuses</option><option>planned</option><option>in progress</option><option>complete</option></select>
+      <button onclick="loadGoals()">Filter</button>
+      <div class="grid">
+        <input id="goalTitle" placeholder="Title" />
+        <input id="goalDate" type="date" />
+        <select id="goalStatus"><option>planned</option><option>in progress</option><option>complete</option></select>
+        <textarea id="goalDesc" placeholder="Description"></textarea>
+        <button onclick="saveGoal()">Save Goal</button>
+      </div>
+      <ul id="goalList"></ul>
+    </section>
+
+    <section id="expenses" class="tab" hidden>
+      <h3>Expenses</h3>
+      <input id="expenseCategoryFilter" placeholder="Category" />
+      <input id="expenseMin" placeholder="Min amount" />
+      <input id="expenseMax" placeholder="Max amount" />
+      <button onclick="loadExpenses()">Filter</button>
+      <div class="grid">
+        <input id="expenseAmount" placeholder="Amount" />
+        <input id="expenseDate" type="date" />
+        <input id="expenseCategory" placeholder="Category" />
+        <textarea id="expenseNotes" placeholder="Notes"></textarea>
+        <button onclick="saveExpense()">Save Expense</button>
+      </div>
+      <ul id="expenseList"></ul>
+    </section>
+
+    <section id="notes" class="tab" hidden>
+      <h3>Notes</h3>
+      <input id="noteSearch" placeholder="Search..." />
+      <button onclick="loadNotes()">Search</button>
+      <div class="grid">
+        <input id="noteTitle" placeholder="Title" />
+        <textarea id="noteContent" placeholder="Content"></textarea>
+        <button onclick="saveNote()">Save Note</button>
+      </div>
+      <ul id="noteList"></ul>
+    </section>
+
+    <section id="confidential" class="tab" hidden>
+      <h3>Confidential Details (encrypted in DB)</h3>
+      <input id="confSearch" placeholder="Search by title" />
+      <button onclick="loadConfidential()">Search</button>
+      <div class="grid">
+        <input id="confTitle" placeholder="Title" />
+        <textarea id="confValue" placeholder="Secret value"></textarea>
+        <button onclick="saveConfidential()">Save Confidential Detail</button>
+      </div>
+      <ul id="confList"></ul>
+    </section>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
